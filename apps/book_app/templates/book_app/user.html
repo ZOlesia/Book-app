@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/books">Home</a>
+    <a href="/books/add">Add book and review</a>
+    <a href="/logout">Logout</a>
+    <h1>User</h1>
+    <p>Name: {{ user.first_name }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Total Review: {{ request.session.count}}</p>
+    <br>
+    <p>Posted review on the following books:</p>
+    {% for i in reviews %}
+        <p><a href="/books/{{ i.book.id }}">{{ i.book.title }}</a></p>
+    {% endfor %}
+</body>
+</html>
